@@ -1629,6 +1629,7 @@
     "opening_hours": "",
     "working_days": [],
     "is_24_7": false,
+<<<<<<< HEAD
     "overall_rating": 4.3,
     "photo": "",
     "created_at": "2025-10-04T21:19:55.865522"
@@ -1868,11 +1869,105 @@
     ],
     "purpose_tags": [],
     "budget_level": "бюджетный",
+=======
+    "photo": "static/photos/20251004191526_818595_image.png",
+    "created_at": "2025-10-04T19:15:26.819055"
+  },
+  {
+    "title": "Megobari",
+    "url": "https://go.2gis.com/6qVtX",
+    "description": "",
+    "entity_types": [
+      "ресторан",
+      "бар"
+    ],
+    "atmosphere_tags": [],
+    "purpose_tags": [
+      "свидание",
+      "друзья",
+      "празднование",
+      "ужин"
+    ],
+    "budget_level": "средний",
+    "features": [
+      "Wi-Fi",
+      "место для курения",
+      "алкоголь",
+      "бесплатный вход",
+      "бронирование",
+      "еда на вынос"
+    ],
+    "best_time": "вечер",
+    "opening_hours": "12:00-24:00",
+    "working_days": [
+      "пн",
+      "вт",
+      "ср",
+      "чт",
+      "пт",
+      "сб",
+      "вс"
+    ],
+    "is_24_7": false,
+    "overall_rating": 4.6,
+    "review_count": 102,
+    "photo": "static/photos/20251004192501_879771__2025-10-04_19.24.47.png",
+    "created_at": "2025-10-04T19:25:01.882448"
+  },
+  {
+    "title": "Ткемали",
+    "url": "https://go.2gis.com/qHqjC",
+    "description": "",
+    "entity_types": [
+      "ресторан"
+    ],
+    "atmosphere_tags": [
+      "уютный",
+      "шумный",
+      "энергичный",
+      "элегантный",
+      "семейный",
+      "туристический",
+      "популярный",
+      "вечерний"
+    ],
+    "purpose_tags": [
+      "свидание",
+      "празднование",
+      "быстрый визит",
+      "ужин"
+    ],
+    "budget_level": "средний",
+    "features": [
+      "Wi-Fi",
+      "место для курения",
+      "алкоголь",
+      "мероприятия"
+    ],
+    "best_time": "вечер",
+    "opening_hours": "12:00-24:00",
+    "working_days": [],
+    "is_24_7": false,
+    "overall_rating": 5.0,
+    "review_count": 221,
+    "photo": "static/photos/20251004192818_599701__2025-10-04_19.28.08.png",
+    "created_at": "2025-10-04T19:28:18.603034"
+  },
+  {
+    "title": "Лат",
+    "url": "",
+    "description": "",
+    "entity_types": [],
+    "atmosphere_tags": [],
+    "purpose_tags": [],
+    "budget_level": "",
+>>>>>>> 45dbcc8 (find places)
     "features": [],
     "best_time": "",
     "opening_hours": "",
     "working_days": [],
     "is_24_7": false,
+<<<<<<< HEAD
     "overall_rating": 4.7,
     "photo": "",
     "created_at": "2025-10-04T21:20:13.114512"
@@ -1910,5 +2005,199 @@
     "overall_rating": 4.3,
     "photo": "",
     "created_at": "2025-10-04T21:20:14.374054"
+=======
+    "created_at": "2025-10-04T19:28:28.662571"
+  },
+  {
+    "title": "Латук",
+    "url": "https://go.2gis.com/VCWdL",
+    "description": "",
+    "entity_types": [
+      "ресторан",
+      "кафе"
+    ],
+    "atmosphere_tags": [
+      "уютный",
+      "спокойный",
+      "семейный",
+      "туристический",
+      "популярный"
+    ],
+    "purpose_tags": [
+      "свидание",
+      "друзья",
+      "наедине",
+      "празднование",
+      "обед",
+      "ужин"
+    ],
+    "budget_level": "средний",
+    "features": [
+      "танцы",
+      "Wi-Fi",
+      "мероприятия",
+      "бесплатный вход",
+      "бронирование",
+      "доставка",
+      "еда на вынос"
+    ],
+    "best_time": "день",
+    "opening_hours": "12:00-22:00",
+    "working_days": [],
+    "is_24_7": false,
+    "overall_rating": 4.8,
+    "review_count": 30,
+    "photo": "static/photos/20251004193052_207628__2025-10-04_19.28.43.png",
+    "created_at": "2025-10-04T19:30:52.210126"
+  },
+  {
+    "title": "Blanc",
+    "url": "https://go.2gis.com/d3Okl",
+    "description": "",
+    "entity_types": [
+      "ресторан"
+    ],
+    "atmosphere_tags": [
+      "романтичный",
+      "спокойный",
+      "элегантный",
+      "премиум",
+      "богемный",
+      "вечерний"
+    ],
+    "purpose_tags": [
+      "свидание",
+      "друзья",
+      "работа",
+      "учеба",
+      "наедине",
+      "бизнес",
+      "ужин"
+    ],
+    "budget_level": "дорогой",
+    "features": [
+      "живая музыка",
+      "Wi-Fi",
+      "парковка",
+      "бесплатный вход",
+      "бронирование",
+      "доставка",
+      "еда на вынос"
+    ],
+    "best_time": "вечер",
+    "opening_hours": "9:00-24:00",
+    "working_days": [],
+    "is_24_7": false,
+    "overall_rating": 4.2,
+    "review_count": 150,
+    "photo": "static/photos/20251004193305_037119__2025-10-04_19.33.01.png",
+    "created_at": "2025-10-04T19:33:05.039628"
+  },
+  {
+    "title": "Pasta на Солянке",
+    "url": "https://go.2gis.com/x2DP4",
+    "description": "",
+    "entity_types": [
+      "ресторан"
+    ],
+    "atmosphere_tags": [
+      "уютный",
+      "романтичный",
+      "спокойный",
+      "элегантный",
+      "премиум",
+      "семейный",
+      "дневной",
+      "вечерний"
+    ],
+    "purpose_tags": [
+      "свидание",
+      "работа",
+      "наедине",
+      "бизнес",
+      "быстрый визит",
+      "обед",
+      "ужин"
+    ],
+    "budget_level": "дорогой",
+    "features": [
+      "Wi-Fi",
+      "место для курения",
+      "алкоголь",
+      "бесплатный вход",
+      "бронирование",
+      "доставка",
+      "еда на вынос"
+    ],
+    "best_time": "день",
+    "opening_hours": "12:00 - 24:00",
+    "working_days": [],
+    "is_24_7": false,
+    "overall_rating": 4.8,
+    "review_count": 1076,
+    "photo": "static/photos/20251004202318_970778__2025-10-04_20.23.13.png",
+    "created_at": "2025-10-04T20:23:18.972067"
+  },
+  {
+    "title": "Bla bla bar",
+    "url": "https://go.2gis.com/DbKU5",
+    "description": "",
+    "entity_types": [
+      "ресторан",
+      "клуб"
+    ],
+    "atmosphere_tags": [
+      "шумный",
+      "энергичный",
+      "ночной"
+    ],
+    "purpose_tags": [
+      "друзья"
+    ],
+    "budget_level": "средний",
+    "features": [
+      "танцы",
+      "место для курения",
+      "алкоголь"
+    ],
+    "best_time": "ночь",
+    "opening_hours": "12:00-06:00",
+    "working_days": [],
+    "is_24_7": false,
+    "overall_rating": 4.7,
+    "review_count": 406,
+    "photo": "static/photos/20251004202835_135252__2025-10-04_20.28.29.png",
+    "created_at": "2025-10-04T20:28:35.139139"
+  },
+  {
+    "title": "Everest Siberia",
+    "url": "https://go.2gis.com/GXW7m",
+    "description": "",
+    "entity_types": [
+      "бар",
+      "клуб"
+    ],
+    "atmosphere_tags": [
+      "шумный",
+      "энергичный",
+      "артхаусный"
+    ],
+    "purpose_tags": [
+      "друзья",
+      "празднование"
+    ],
+    "budget_level": "средний",
+    "features": [
+      "живая музыка"
+    ],
+    "best_time": "ночь",
+    "opening_hours": "10:00-05:00",
+    "working_days": [],
+    "is_24_7": false,
+    "overall_rating": 5.0,
+    "review_count": 274,
+    "photo": "static/photos/20251004203226_446934__2025-10-04_20.29.04.png",
+    "created_at": "2025-10-04T20:32:26.458613"
+>>>>>>> 45dbcc8 (find places)
   }
 ]
