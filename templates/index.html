@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить место</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .screenshot-preview {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 10px;
+            display: none;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+        .category-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        #paste-area {
+            border: 2px dashed #6c757d;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa;
+        }
+        #paste-area:hover {
+            border-color: #007bff;
+            background: #e9ecef;
+        }
+        #paste-area.dragover {
+            border-color: #007bff;
+            background: #e3f2fd;
+        }
+        .paste-instructions {
+            color: #6c757d;
+            font-size: 16px;
+            text-align: center;
+        }
+        .form-section-title {
+            color: #495057;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .required-field::after {
+            content: " *";
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<div class="container py-4">
+    <h1 class="mb-4 text-center">Добавить новое место</h1>
+    <form method="POST" enctype="multipart/form-data" class="bg-white p-4 rounded shadow">
+
+        <!-- Основная информация -->
+        <div class="category-section">
+            <h4 class="form-section-title">Основная информация</h4>
+            <div class="mb-3">
+                <label class="form-label required-field">Название места</label>
+                <input type="text" name="name" class="form-control" required placeholder="Введите название места">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ссылка на 2ГИС</label>
+                <input type="url" name="link" class="form-control" placeholder="https://2gis.ru/...">
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label">Описание</label>
+                <textarea name="description" class="form-control" rows="3" placeholder="Краткое описание места..."></textarea>
+            </div>
+        </div>
+
+        <!-- Сущность -->
+        <div class="category-section">
+            <h4 class="form-section-title">Тип места</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Ресторан" id="entity1">
+                        <label class="form-check-label" for="entity1">Ресторан</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Кафе" id="entity2">
+                        <label class="form-check-label" for="entity2">Кафе</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Бар / Паб" id="entity3">
+                        <label class="form-check-label" for="entity3">Бар / Паб</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Кофейня" id="entity4">
+                        <label class="form-check-label" for="entity4">Кофейня</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Парк" id="entity5">
+                        <label class="form-check-label" for="entity5">Парк</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Набережная" id="entity6">
+                        <label class="form-check-label" for="entity6">Набережная</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Сквер" id="entity7">
+                        <label class="form-check-label" for="entity7">Сквер</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Смотровая площадка" id="entity8">
+                        <label class="form-check-label" for="entity8">Смотровая площадка</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Музей" id="entity9">
+                        <label class="form-check-label" for="entity9">Музей</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Арт-центр / Галерея" id="entity10">
+                        <label class="form-check-label" for="entity10">Арт-центр / Галерея</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Кинотеатр" id="entity11">
+                        <label class="form-check-label" for="entity11">Кинотеатр</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Улица" id="entity12">
+                        <label class="form-check-label" for="entity12">Улица</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Бутик" id="entity13">
+                        <label class="form-check-label" for="entity13">Бутик</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input entity-checkbox" type="checkbox" name="entity" value="Клуб / Лаунж" id="entity14">
+                        <label class="form-check-label" for="entity14">Клуб / Лаунж</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Атмосфера -->
+        <div class="category-section">
+            <h4 class="form-section-title">Атмосфера и настроение</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Шумно / Энергично" id="atm1">
+                        <label class="form-check-label" for="atm1">Шумно / Энергично</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Тихо / Спокойно" id="atm2">
+                        <label class="form-check-label" for="atm2">Тихо / Спокойно</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Уютно / Домашно" id="atm3">
+                        <label class="form-check-label" for="atm3">Уютно / Домашно</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Элегантно / Премиально" id="atm4">
+                        <label class="form-check-label" for="atm4">Элегантно / Премиально</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Богемно / Арт-хаусно" id="atm5">
+                        <label class="form-check-label" for="atm5">Богемно / Арт-хаусно</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Хипстерское / Альтернативное" id="atm6">
+                        <label class="form-check-label" for="atm6">Хипстерское / Альтернативное</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Семейное / Детское" id="atm7">
+                        <label class="form-check-label" for="atm7">Семейное / Детское</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="atmosphere" value="Романтическое" id="atm8">
+                        <label class="form-check-label" for="atm8">Романтическое</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контекст использования -->
+        <div class="category-section">
+            <h4 class="form-section-title">Для каких ситуаций подходит</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="context" value="Свидание" id="ctx1">
+                        <label class="form-check-label" for="ctx1">Свидание</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="context" value="Работа / Учеба" id="ctx2">
+                        <label class="form-check-label" for="ctx2">Работа / Учеба</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="context" value="Встреча с друзьями" id="ctx3">
+                        <label class="form-check-label" for="ctx3">Встреча с друзьями</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="context" value="Деловая встреча" id="ctx4">
+                        <label class="form-check-label" for="ctx4">Деловая встреча</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="context" value="Праздник" id="ctx5">
+                        <label class="form-check-label" for="ctx5">Праздник</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="context" value="Одиночный отдых" id="ctx6">
+                        <label class="form-check-label" for="ctx6">Одиночный отдых</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Детали -->
+        <div class="category-section">
+            <h4 class="form-section-title">Детали места</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Целевая аудитория</label>
+                        <input type="text" name="target_audience" class="form-control" placeholder="Молодежь, семьи, бизнес-люди...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Лучшее время для посещения</label>
+                        <input type="text" name="best_time" class="form-control" placeholder="Утро, день, вечер, ночь...">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Освещение</label>
+                        <input type="text" name="lighting" class="form-control" placeholder="Естественное, искусственное, приглушенное...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Уровень цен</label>
+                        <select name="budget" class="form-select">
+                            <option value="">Выберите уровень цен</option>
+                            <option value="Бюджетный / Экономный">Бюджетный / Экономный</option>
+                            <option value="Средний">Средний</option>
+                            <option value="Дорогой / Премиум">Дорогой / Премиум</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Особенности и услуги -->
+        <div class="category-section">
+            <h4 class="form-section-title">Особенности и услуги</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="С верандой / На открытом воздухе" id="feat1">
+                        <label class="form-check-label" for="feat1">С верандой / На открытом воздухе</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="С домашними животными" id="feat2">
+                        <label class="form-check-label" for="feat2">Можно с домашними животными</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="Вегетарианское / Веганское" id="feat3">
+                        <label class="form-check-label" for="feat3">Вегетарианское / Веганское меню</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="С живой музыкой" id="feat4">
+                        <label class="form-check-label" for="feat4">Живая музыка</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="Wi-Fi" id="feat5">
+                        <label class="form-check-label" for="feat5">Бесплатный Wi-Fi</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="Парковка" id="feat6">
+                        <label class="form-check-label" for="feat6">Парковка</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="Доступная среда" id="feat7">
+                        <label class="form-check-label" for="feat7">Доступная среда</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="features" value="Бронирование" id="feat8">
+                        <label class="form-check-label" for="feat8">Возможно бронирование</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Скриншоты и фото -->
+        <div class="category-section">
+            <h4 class="form-section-title">Фотографии места</h4>
+            <input type="file" name="screenshot" id="screenshot-input" accept="image/*" style="display:none;" multiple>
+            
+            <div id="paste-area" class="mb-3">
+                <div class="paste-instructions">
+                    <div style="font-size: 48px; margin-bottom: 10px;">📷</div>
+                    <h5>Добавьте фотографии</h5>
+                    <p class="mb-2">Нажмите для выбора файлов или перетащите изображения сюда</p>
+                    <p class="mb-2"><strong>Или вставьте скриншот:</strong> нажмите Ctrl+V</p>
+                    <small class="text-muted">Поддерживаются: JPG, PNG, GIF. Максимум 10 МБ на файл</small>
+                </div>
+                <img id="preview" class="screenshot-preview"/>
+            </div>
+            
+            <div id="file-list" class="mt-3"></div>
+        </div>
+
+        <!-- Дополнительные блоки (остаются без изменений) -->
+        <!-- Еда/Напитки -->
+        <div id="extra-food" class="category-section" style="display:none;">
+            <h5>Дополнительно (еда / напитки)</h5>
+            <label class="form-label">Кухня / Тип еды</label>
+            <input type="text" name="cuisine_type" class="form-control mb-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="wifi" value="Да" id="wifi">
+                <label class="form-check-label" for="wifi">Есть Wi-Fi</label>
+            </div>
+            <label class="form-label mt-2">Время работы</label>
+            <input type="text" name="working_hours" class="form-control">
+        </div>
+
+        <!-- Парки / прогулки -->
+        <div id="extra-park" class="category-section" style="display:none;">
+            <h5>Дополнительно (парк / прогулка)</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="parking" value="Да" id="parking">
+                <label class="form-check-label" for="parking">Есть парковка</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="child_friendly" value="Да" id="child_friendly">
+                <label class="form-check-label" for="child_friendly">Доступно для детей</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="picnic_zone" value="Да" id="picnic_zone">
+                <label class="form-check-label" for="picnic_zone">Зона для пикника</label>
+            </div>
+        </div>
+
+        <!-- Культура / история -->
+        <div id="extra-culture" class="category-section" style="display:none;">
+            <h5>Дополнительно (культура / история)</h5>
+            <label class="form-label">Стоимость билета</label>
+            <input type="text" name="ticket_price" class="form-control mb-2">
+            <label class="form-label">Режим работы</label>
+            <input type="text" name="schedule" class="form-control mb-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="excursions" value="Да" id="excursions">
+                <label class="form-check-label" for="excursions">Есть экскурсии</label>
+            </div>
+        </div>
+
+        <!-- Улицы / магазины / клубы -->
+        <div id="extra-street" class="category-section" style="display:none;">
+            <h5>Дополнительно (улицы / магазины / клубы)</h5>
+            <label class="form-label">Особенности фасадов / интерьера</label>
+            <input type="text" name="street_features" class="form-control mb-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="live_music" value="Да" id="live_music">
+                <label class="form-check-label" for="live_music">С живой музыкой</label>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Сохранить место</button>
+        </div>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let entityCheckboxes = document.querySelectorAll('.entity-checkbox');
+    let pasteArea = document.getElementById('paste-area');
+    let preview = document.getElementById('preview');
+    let screenshotInput = document.getElementById('screenshot-input');
+    let fileList = document.getElementById('file-list');
+    let pasteInstructions = pasteArea.querySelector('.paste-instructions');
+
+    // Обновление дополнительных полей
+    function updateExtraFields() {
+        let selected = Array.from(entityCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+        
+        document.getElementById('extra-food').style.display = 'none';
+        document.getElementById('extra-park').style.display = 'none';
+        document.getElementById('extra-culture').style.display = 'none';
+        document.getElementById('extra-street').style.display = 'none';
+
+        if (selected.some(e => ['Ресторан','Кафе','Бар / Паб','Кофейня'].includes(e))) {
+            document.getElementById('extra-food').style.display = 'block';
+        }
+        if (selected.some(e => ['Парк','Набережная','Сквер','Смотровая площадка'].includes(e))) {
+            document.getElementById('extra-park').style.display = 'block';
+        }
+        if (selected.some(e => ['Музей','Арт-центр / Галерея','Кинотеатр'].includes(e))) {
+            document.getElementById('extra-culture').style.display = 'block';
+        }
+        if (selected.some(e => ['Улица','Бутик','Клуб / Лаунж'].includes(e))) {
+            document.getElementById('extra-street').style.display = 'block';
+        }
+    }
+
+    entityCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateExtraFields);
+    });
+
+    // Улучшенная обработка файлов
+    pasteArea.addEventListener('click', function() {
+        screenshotInput.click();
+    });
+
+    // Обработка выбора файлов
+    screenshotInput.addEventListener('change', function(event) {
+        handleFiles(event.target.files);
+    });
+
+    // Drag and drop
+    pasteArea.addEventListener('dragover', function(event) {
+        event.preventDefault();
+        pasteArea.classList.add('dragover');
+    });
+
+    pasteArea.addEventListener('dragleave', function() {
+        pasteArea.classList.remove('dragover');
+    });
+
+    pasteArea.addEventListener('drop', function(event) {
+        event.preventDefault();
+        pasteArea.classList.remove('dragover');
+        handleFiles(event.dataTransfer.files);
+    });
+
+    // Вставка через Ctrl+V
+    document.addEventListener('paste', function(event) {
+        // Не обрабатываем вставку в текстовые поля
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+            return;
+        }
+
+        let items = (event.clipboardData || event.originalEvent.clipboardData).items;
+        for (let item of items) {
+            if (item.type.indexOf("image") !== -1) {
+                event.preventDefault();
+                let file = item.getAsFile();
+                if (file) {
+                    handleFiles([file]);
+                }
+                break;
+            }
+        }
+    });
+
+    function handleFiles(files) {
+        for (let file of files) {
+            if (!file.type.startsWith('image/')) {
+                alert('Пожалуйста, выбирайте только изображения');
+                continue;
+            }
+
+            if (file.size > 10 * 1024 * 1024) {
+                alert('Файл слишком большой. Максимальный размер: 10MB');
+                continue;
+            }
+
+            // Создаем превью
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                pasteInstructions.style.display = 'none';
+                
+                // Добавляем файл в список выбранных
+                addFileToList(file);
+            };
+            reader.readAsDataURL(file);
+
+            // Обновляем input file
+            updateFileInput(file);
+        }
+    }
+
+    function addFileToList(file) {
+        let fileItem = document.createElement('div');
+        fileItem.className = 'alert alert-info d-flex justify-content-between align-items-center';
+        fileItem.innerHTML = `
+            <div>
+                <strong>${file.name}</strong> 
+                <small class="text-muted">(${(file.size / 1024 / 1024).toFixed(2)} MB)</small>
+            </div>
+            <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+        `;
+        fileList.appendChild(fileItem);
+    }
+
+    function updateFileInput(newFile) {
+        // Для множественного выбора добавляем файлы
+        let dt = new DataTransfer();
+        
+        // Добавляем существующие файлы
+        for (let file of screenshotInput.files) {
+            dt.items.add(file);
+        }
+        
+        // Добавляем новый файл
+        dt.items.add(newFile);
+        
+        screenshotInput.files = dt.files;
+    }
+
+    // Сделать область вставки фокусируемой
+    pasteArea.setAttribute('tabindex', '0');
+    pasteArea.addEventListener('focus', function() {
+        pasteArea.style.borderColor = '#007bff';
+        pasteArea.style.backgroundColor = '#e9ecef';
+    });
+
+    pasteArea.addEventListener('blur', function() {
+        pasteArea.style.borderColor = '';
+        pasteArea.style.backgroundColor = '';
+    });
+});
+</script>
+</body>
+</html>
